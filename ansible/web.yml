@@ -1,0 +1,22 @@
+---
+- name: Install OpenStates.org
+  hosts: openstates
+  user: ubuntu
+  sudo: yes
+  roles:
+      - role: common-roles/common
+        hostname: openstates
+        extra_packages:
+          - libpq-dev
+          - libxslt-dev
+      - role: common-roles/ebs
+        device_letter: f
+        volume_size: 10
+        ebs_path: /projects/openstates/
+        when: use_ebs == True
+      - role: common-roles/django
+        project_name: openstates
+        gitrepo: "git://github.com/sunlightlabs/openstates.org.git"
+        wsgi_module: openstates.wsgi:application
+      - role: openstates
+        project_name: openstates
