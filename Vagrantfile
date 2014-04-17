@@ -2,7 +2,12 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "chef/ubuntu-13.10"
+
+  config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
+  config.vm.network :forwarded_port, guest: 22, host: 2231, auto_correct: true
+
   config.vm.network :private_network, ip: "10.42.1.100"
+
   config.vm.synced_folder ".", "/projects/openstates/src/site"
   config.vm.synced_folder "../billy", "/projects/openstates/src/billy"
 
