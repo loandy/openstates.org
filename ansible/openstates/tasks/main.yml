@@ -1,4 +1,9 @@
 ---
 - name: syncdb
   command: /projects/{{project_name}}/virt/bin/python manage.py syncdb --noinput chdir=/projects/{{project_name}}/src/site
+  sudo_user: "{{project_name}}"
+  environment: django_environment
+- name: collectstatic
+  command: /projects/{{project_name}}/virt/bin/python manage.py collectstatic --noinput chdir=/projects/{{project_name}}/src/site
+  #sudo_user: "{{project_name}}"
   environment: django_environment
