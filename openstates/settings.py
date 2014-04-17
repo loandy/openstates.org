@@ -18,7 +18,7 @@ DATABASE_ENGINE = envvar('DATABASE_ENGINE', 'django.db.backends.postgresql_psyco
 DATABASE_PASSWORD = envvar('DATABASE_PASSWORD', '')
 IMAGO_MONGO_URI = envvar('IMAGO_MONGO_URI', 'mongodb://localhost')
 TEMPATE_DEBUG = DEBUG = envvar('DJANGO_DEBUG', 'False').lower() == 'true'
-USE_LOCKSMITH = DEBUG = envvar('USE_LOCKSMITH', 'False').lower() == 'true'
+USE_LOCKSMITH = envvar('USE_LOCKSMITH', 'False').lower() == 'true'
 SUNLIGHT_AUTH_SECRET = envvar('SUNLIGHT_AUTH_SECRET', '')
 if USE_LOCKSMITH:
     LOCKSMITH_SIGNING_KEY = envvar('LOCKSMITH_SIGNING_KEY')
@@ -53,10 +53,10 @@ DATE_FORMAT = 'Y-m-d'
 TIME_FORMAT = 'H:i:s'
 DATETIME_FORMAT = 'Y-m-d H:i:s'
 
-STATIC_ROOT = os.path.join(os.path.dirname(__file__), '../..', 'collected_static')
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), '..', 'collected_static')
 STATIC_URL = '/media/'
 STATICFILES_DIRS = (
-    os.path.abspath(os.path.join(os.path.dirname(__file__), '../..', 'media')),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'media')),
 )
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -99,7 +99,7 @@ ROOT_URLCONF = 'openstates.urls'
 WSGI_APPLICATION = 'openstates.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.abspath(os.path.join(os.path.dirname(__file__), '../..', 'templates')),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'templates')),
 )
 
 INSTALLED_APPS = (

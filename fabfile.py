@@ -12,5 +12,4 @@ def cron():
                                   # 'log-slow': 700,
                                   # 'disable-logging': 'true',
                                  },
-                    python3=False,
                     server_name='openstates.org',

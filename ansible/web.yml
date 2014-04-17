@@ -16,7 +16,11 @@
         when: use_ebs == True
       - role: common-roles/django
         project_name: openstates
-        gitrepo: "git://github.com/sunlightlabs/openstates.org.git"
+        git_repositories:
+            - dir: site
+              repo: "git://github.com/sunlightlabs/openstates.org.git"
+            - dir: billy
+              repo: "git://github.com/sunlightlabs/billy.git"
         wsgi_module: openstates.wsgi:application
         python_version: 2
       - role: openstates

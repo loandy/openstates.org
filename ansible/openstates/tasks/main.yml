@@ -1,10 +1,4 @@
 ---
-- name: remove pip installed billy
-  file: path=/projects/{{project_name}}/virt/src/billy state=absent
-  when: vagrant == True
-- name: link in /vagrant-billy (if it exists)
-  file: src=/vagrant-billy dest=/projects/{{project_name}}/virt/src/billy owner={{project_name}} group={{project_name}} state=link force=yes
-  when: vagrant == True
 - name: syncdb
-  command: /projects/{{project_name}}/virt/bin/python manage.py syncdb --noinput chdir=/projects/{{project_name}}/src
+  command: /projects/{{project_name}}/virt/bin/python manage.py syncdb --noinput chdir=/projects/{{project_name}}/src/site
   environment: django_environment
