@@ -13,7 +13,6 @@
         device_letter: f
         volume_size: 10
         ebs_path: /projects/openstates/
-        when: use_ebs == True
       - role: common-roles/django
         project_name: openstates
         git_repositories:
