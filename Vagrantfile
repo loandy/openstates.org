@@ -11,7 +11,7 @@ FOLDERS = {"/projects/openstates/src/site" => ".",
           }
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "chef/ubuntu-13.10"
+  config.vm.box = "chef/ubuntu-14.04"
 
   # awkward fix for SSH reassignment issue (re-evaluate w/ Vagrant 1.5.4)
   config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", disabled: true
