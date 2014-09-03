@@ -113,7 +113,6 @@ INSTALLED_APPS = (
     'billy.web.api',
     'billy.web.admin',
     'billy.web.public',
-    'locksmith.mongoauth',
     'social.apps.django_app.default',
     'markup_tags',
     'funfacts',
